@@ -97,7 +97,7 @@ std::string const& Book::title() const&
 std::string const& Book::author() const&
 {
     ///////////////////////// TO-DO (10) //////////////////////////////
-    return title();
+    return author();
     /////////////////////// END-TO-DO (10) ////////////////////////////
 }
 
@@ -319,8 +319,15 @@ std::istream& operator>>(std::istream& stream, Book& book)
       /// Hint:  Use std::quoted to read and write quoted strings.  See
       ///        1) https://en.cppreference.com/w/cpp/io/manip/quoted
       ///        2) https://www.youtube.com/watch?v=Mu-GUZuU31A
-
-
+      std::cout << "ISBN" << std::setfill(' ') << "|" << "Title" << std::setfill(' ') << "|" << "Author" << std::setfill(' ') << "|" << "Price";
+      std::cout << "-----------------+-----------------------+--------------------+-----";
+      std::cin >> title() >> author() >> isbn() >> price() ;
+      std::cout << std::quoted(isbn()) << ", " << std::quoted(title()) << ", " << std::quoted(author()) << ", " << price();
+      //someone dude said it's a while loop, but it doesn't make sense since eof stream require the fstream header :()
+      while (!stream.eof()) {
+        code here
+      }
+      return stream;
     /////////////////////// END-TO-DO (21) ////////////////////////////
 }
 
@@ -334,7 +341,10 @@ std::ostream& operator<<(std::ostream& stream, const Book& book)
       /// This function should be symmetrical with operator>> above.  Read what your write, and write what you read
 
     //cout << setfill('-') << setw(WIDTH) << right << '-' << setfill(' ') << endl;
-
+    std::cout << "ISBN" << std::setfill(' ') << "|" << "Title" << std::setfill(' ') << "|" << "Author" << std::setfill(' ') << "|" << "Price";
+    std::cout << "-----------------+-----------------------+--------------------+-----";
+    std::cin >> title() >> author() >> isbn() >> price() ;
+    std::cout << std::quoted(isbn()) << ", " << std::quoted(title()) << ", " << std::quoted(author()) << ", " << price();
 
       /////////////////////// END-TO-DO (22) ////////////////////////////
 }
